@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Countdown regalo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family: 'Luckiest Guy', cursive;
+  background: linear-gradient(120deg,#ff6ec4,#7873f5,#42f5e6);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow: hidden;
+  user-select: none;
+}
+
+@keyframes gradientBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.card{
+  text-align:center;
+}
+
+#count{
+  font-size:120px;
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+  margin:0;
+}
+
+.banner{
+  display:none;
+  font-size:48px;
+  color:#ffdd00;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  margin-top:20px;
+  transform: rotate(0deg);
+  animation: bannerAnim 2s ease forwards;
+  transform-origin: top center;
+}
+
+#cat{
+  display:none;
+  margin:20px auto 0 auto;
+  width:600px;
+  border-radius:15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+@keyframes bannerAnim{
+  0%{transform: translateY(-200px) rotate(-15deg);}
+  50%{transform: translateY(50px) rotate(10deg);}
+  100%{transform: translateY(0px) rotate(0deg);}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div id="count">5</div>
+  <div id="banner" class="banner">Che Peccato, c'eri quasi!</div>
+  <div id="banner2" class="banner">Ritenta la fortuna con un altro QR</div>
+  <img id="cat" src="gattino.png" alt="Gattino carino">
+</div>
+
+<!-- Audio invisibile -->
+<audio id="audio" src="sadsongmeme.mp3"></audio>
+
+<script>
+let n = 5;
+let countEl = document.getElementById('count');
+let banners = document.querySelectorAll('.banner');
+let catEl = document.getElementById('cat');
+let audioEl = document.getElementById('audio');
+
+function startCountdown() {
+  document.body.removeEventListener('click', startCountdown);
+  let timer = setInterval(function(){
+    n--;
+    if(n>0){
+      countEl.innerText = n;
+    } else {
+      clearInterval(timer);
+      countEl.style.display = 'none';
+      banners.forEach(b => b.style.display = 'block');
+      catEl.style.display = 'block';
+      audioEl.play(); // musica parte SOLO ora, con le scritte
+    }
+  },1000);
+}
+
+// Click necessario per sbloccare l'audio, ma parte solo alla fine
+document.body.addEventListener('click', startCountdown);
+</script>
+
+</body>
+</html>

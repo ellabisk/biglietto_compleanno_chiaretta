@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Vinci un Regalo</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family: Arial, sans-serif;
+
+/* sfondo  */
+background: linear-gradient(135deg,#4facfe,#00c6ff);
+}
+
+/* sfondo centrale */
+.card{
+background: linear-gradient(145deg,#ffffff,#f0f0f0);
+padding:50px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+width:350px;
+}
+
+/* titolo */
+h1{
+font-size:32px;
+margin-bottom:20px;
+}
+
+/* probabilità */
+.prob{
+font-size:26px;
+font-weight:bold;
+margin:15px 0;
+}
+
+/* risultato */
+.fail{
+margin-top:25px;
+font-size:20px;
+color:#444;
+}
+
+/* scritta  */
+.badge{
+background: linear-gradient(45deg,#ffd700,#ffb700);
+color:#333;
+padding:8px 15px;
+border-radius:30px;
+font-weight:bold;
+display:inline-block;
+margin-bottom:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="badge"> Verifica vincita</div>
+
+<h1> Vinci anche tu! </h1>
+
+
+<div class="prob">
+🎁 99,9% probabilità di ricevere un regalo
+</div>
+
+<div class="fail">
+⚠️ Ma non è in questo QR<br><br>
+Prova a grattarne un altro 
+</div>
+
+</div>
+
+</body>
+</html>
