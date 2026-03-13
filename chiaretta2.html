@@ -74,7 +74,7 @@ body{
 </div>
 
 <!-- Audio invisibile -->
-<audio id="audio" src="Sadsongmeme.mp3"></audio>
+<audio id="audio" src="sadsongmeme.mp3" preload="auto"></audio>
 
 <script>
 let n = 5;
@@ -85,6 +85,12 @@ let audioEl = document.getElementById('audio');
 
 function startCountdown() {
   document.body.removeEventListener('click', startCountdown);
+  audioEl.play().then(() => {
+      audioEl.pause();
+      audioEl.currentTime = 0;
+  }).catch(() => {
+      // Gestisci l'errore se l'audio non può essere riprodotto
+  }); // sblocca l'audio al primo click, ma non parte ancora
   let timer = setInterval(function(){
     n--;
     if(n>0){
@@ -104,5 +110,4 @@ document.body.addEventListener('click', startCountdown);
 </script>
 
 </body>
-
 </html>
